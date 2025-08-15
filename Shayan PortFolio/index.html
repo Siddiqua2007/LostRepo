@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shayan - Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgb(0, 0, 36);
+        color: white;
+        font-family: "Poppins", sans-serif;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .portfolio-link {
+        text-decoration: none; /* Remove underline */
+        color: rgb(181, 37, 248); /* Text color */
+        font-size: 1.5rem; /* Match the existing font size */
+        transition: color 0.3s, transform 0.3s; /* Smooth transition */
+      }
+
+      .portfolio-link:hover {
+        color: rgb(92, 92, 211); /* Change color on hover */
+        font-size: 1.7rem; /* Increase font size on hover */
+      }
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 80px;
+        background-color: rgb(18, 18, 68);
+        transition: background-color 0.3s;
+        padding: 0 20px;
+      }
+      nav ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      nav ul li {
+        list-style: none;
+        margin: 0 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        transition: color 0.3s;
+      }
+      nav ul li a:hover {
+        color: rgb(92, 92, 211);
+        font-size: 1.2rem;
+      }
+      .left {
+        font-size: 1.5rem;
+      }
+      .firstSection {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 50px 0;
+        flex-wrap: wrap;
+      }
+      .firstSection > div {
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        margin: 20px 0;
+      }
+      .leftSection {
+        font-size: 3rem;
+      }
+      .leftSection .btn {
+        text-decoration: none;
+        color: white;
+        padding: 12px;
+        background: #1e2167;
+        border: 2px;
+        border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .leftSection .btn:hover {
+        font-size: 1.2rem;
+        background: #2a2d8a;
+      }
+      .rightSection img {
+        max-width: 100%;
+  height: auto;
+      }
+      .purple {
+        color: blueviolet;
+      }
+      #element {
+        color: blueviolet;
+      }
+
+      /* Dark Mode Styles */
+      body.light-mode {
+        background-color: #ffffff;
+        color: #000000;
+      }
+      body.light-mode nav {
+        background-color: #f0f0f0;
+      }
+      body.light-mode nav ul li a {
+        color: #000000;
+      }
+      body.light-mode nav ul li a:hover {
+        color: rgb(92, 92, 211);
+      }
+      body.light-mode .leftSection .btn {
+        background-color: #e0e0e0;
+        color: #000000;
+      }
+      body.light-mode .leftSection .btn:hover {
+        background-color: #d0d0d0;
+      }
+      /* About Section */
+      .aboutSection {
+        padding: 50px 20px;
+  text-align: center;
+      }
+      .aboutContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .aboutImage img {
+        border-radius: 50%;
+  border: 4px solid blueviolet;
+  max-width: 100%;
+  height: auto;
+      }
+      .aboutText {
+        max-width: 600px;
+        text-align: left;
+      }
+
+      /* Skills Section */
+      .skillsSection {
+        padding: 50px 20px;
+        text-align: center;
+      }
+      .skillsContainer ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .skillsContainer ul li {
+        background: #1e2167;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.2rem;
+      }
+      .skillsContainer ul li i {
+        font-size: 1.5rem;
+      }
+      .skillsContainer ul li .fa-html5 {
+        color: #e34c26; /* HTML5 orange */
+      }
+      .skillsContainer ul li .fa-css3-alt {
+        color: #264de4; /* CSS3 blue */
+      }
+      .skillsContainer ul li .fa-js {
+        color: #f0db4f; /* JavaScript yellow */
+      }
+      .skillsContainer ul li .fa-react {
+        color: #61dbfb; /* React blue */
+      }
+      .skillsContainer ul li .fa-node {
+        color: #68a063; /* Node.js green */
+      }
+      .skillsContainer ul li .fa-python {
+        color: #3776ab; /* Python blue */
+      }
+      .skillsContainer ul li .fa-database {
+        color: #00758f; /* SQL blue */
+      }
+      .skillsContainer ul li .fa-chart-line {
+        color: #4caf50; /* Data Analysis green */
+      }
+      .skillsContainer ul li .fa-git {
+        color: #f34f29; /* Git orange */
+      }
+
+      /* Projects Section */
+      .projectsSection {
+        padding: 50px 0;
+        text-align: center;
+      }
+      .projectsContainer {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .project {
+        background: #1e2167;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 300px;
+        width: 100%;
+      }
+      .project img {
+        border-radius: 10px;
+        max-width: 100%;
+  height: auto;
+      }
+
+      /* Resume Section */
+      .resumeSection {
+        padding: 50px 0;
+        text-align: center;
+      }
+      .resumeSection a {
+        color: blueviolet;
+        text-decoration: none;
+      }
+      .resumeSection a:hover {
+        text-decoration: underline;
+      }
+
+      /* Contact Section */
+      .contactSection {
+        padding: 50px 0;
+        text-align: center;
+      }
+      .contactSection ul {
+        list-style: none;
+      }
+      .contactSection ul li {
+        margin: 10px 0;
+      }
+
+      /* Footer */
+      footer {
+        background: rgb(18, 18, 68);
+        padding: 20px 0;
+        text-align: center;
+        margin-top: 50px;
+      }
+      footer p {
+        margin: 5px 0;
+      }
+      footer a {
+        color: blueviolet;
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .firstSection {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .leftSection {
+    font-size: 1.5rem;
+  }
+
+  .rightSection img {
+    width: 70%;
+  }
+
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .leftSection {
+    font-size: 1.2rem;
+  }
+
+  .leftSection .btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .aboutText {
+    text-align: center;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="left"><a href="#" class="portfolio-link">Portfolio</a></div>
+        <div class="right">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <button
+                id="theme-toggle"
+                style="
+                  background: none;
+                  border: none;
+                  cursor: pointer;
+                  color: white;
+                  font-size: 1rem;
+                "
+              >
+                🌓
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="firstSection">
+        <div class="leftSection">
+          Hi, I am <span class="purple">Shayan</span>
+          <div>and I am a passionate</div>
+          <span id="element"></span>
+          <div class="buttons">
+            <button class="btn">
+              <a
+                href="https://drive.google.com/file/d/1oOe9N9EmgFpjoK71auW2XgpYOfVdSYf3/view?usp=drivesdk"
+                >Download Resume</a
+              >
+            </button>
+            <button class="btn">
+              <a href="https://github.com/shayan-ing">Visit Github</a>
+            </button>
+          </div>
+        </div>
+        <div class="RightSection">
+          <img src="developer.png" width="90%" />
+        </div>
+      </section>
+      <!-- ====== PLACE THIS CODE BELOW THE <main> TAG IN YOUR EXISTING HTML ====== -->
+
+      <!-- About Section -->
+      <section id="about" class="aboutSection">
+        <div class="aboutContainer">
+          <div class="aboutImage">
+            <img src="DEV ICON.jpg" alt="Your Name" width="200" />
+          </div>
+          <div class="aboutText">
+            <h2>About Me</h2>
+            <p>
+              Hi, I'm Shayan, a passionate Web Developer and Data Analyst with
+              experience in building responsive websites and analyzing complex
+              datasets. I specialize in front-end development, data
+              visualization, and problem-solving. I love turning ideas into
+              reality through code and continuously strive to learn and grow in
+              the tech industry.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="skillsSection">
+        <h2>Skills</h2>
+        <div class="skillsContainer">
+          <ul>
+            <li><i class="fab fa-html5"></i> HTML</li>
+            <li><i class="fab fa-css3-alt"></i> CSS</li>
+            <li><i class="fab fa-js"></i> JavaScript</li>
+            <li><i class="fab fa-react"></i> React.js</li>
+            <li><i class="fab fa-node"></i> Node.js</li>
+            <li><i class="fab fa-python"></i> Python</li>
+            <li><i class="fas fa-database"></i> SQL</li>
+            <li><i class="fas fa-chart-line"></i> Data Analysis</li>
+            <li><i class="fab fa-git"></i> Git</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="project" class="projectsSection">
+        <h2>Projects</h2>
+        <div class="projectsContainer">
+          <div class="project">
+            <img src="portfolio.png" alt="Project 1" width="250" />
+            <h3>Project 1: Portfolio Website</h3>
+            <p>
+              A responsive portfolio website built using HTML, CSS, and
+              JavaScript to showcase my work and skills.
+            </p>
+          </div>
+          <div class="project">
+            <img src="landing-page.png" alt="Project 2" width="250" />
+            <h3>Project 2: Landing Page</h3>
+            <p>
+              The goal of this landing page is to provide a clean and engaging
+              user experience to inform visitors about product.
+            </p>
+          </div>
+          <div class="project">
+            <img src="calculation.png" alt="Project 3" width="250" />
+            <h3>Project 3: Calculator</h3>
+            <p>
+              It performs basic arithmetic operations. The design is clean and
+              responsive, ensuring a smooth experience across different devices.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resume Section -->
+      <section class="resumeSection">
+        <h2>Resume</h2>
+        <p>
+          Download my resume to learn more about my experience and skills:
+          <a
+            href="https://drive.google.com/file/d/1oOe9N9EmgFpjoK71auW2XgpYOfVdSYf3/view?usp=drivesdk"
+            target="_blank"
+            >Download Resume (PDF)</a
+          >
+        </p>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contactSection">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out to me for collaborations or inquiries:</p>
+        <ul>
+          <li>Email: shayanakhtarabedeen@gmail.com</li>
+          <li>Phone: +91 8863822554</li>
+        </ul>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2025 Shayan. All rights reserved.</p>
+        <p><a href="/">Privacy Policy</a> | <a href="/">Terms of Service</a></p>
+      </footer>
+
+      <!-- ====== END OF CODE TO ADD ====== -->
+    </main>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      // Typed.js initialization
+      var typed = new Typed("#element", {
+        strings: ["Web Developer", "Data Analyst", "Programmer"],
+        typeSpeed: 60,
+        backSpeed: 60,
+        loop: true,
+      });
+
+      // Dark Mode/Light Mode Toggle
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+
+      // Check user's preference from localStorage
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light-mode") {
+        body.classList.add("light-mode");
+        themeToggle.textContent = "🌙";
+      } else {
+        themeToggle.textContent = "🌞";
+      }
+
+      // Toggle theme on button click
+      themeToggle.addEventListener("click", () => {
+        body.classList.toggle("light-mode");
+        const isLightMode = body.classList.contains("light-mode");
+        localStorage.setItem("theme", isLightMode ? "light-mode" : "dark-mode");
+        themeToggle.textContent = isLightMode ? "🌙" : "🌞";
+      });
+    </script>
+  </body>
+</html>
